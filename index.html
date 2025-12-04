@@ -1,16 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script>
-  const android = "https://play.google.com/store/apps/details?id=com.thekada.app";
-  const ios = "https://apps.apple.com/us/app/the-kada/id6754100479;
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const android = "https://play.google.com/store/apps/details?id=com.thekada.app";
+    const ios = "https://apps.apple.com/us/app/the-kada/id6754100479";
 
-  const ua = navigator.userAgent.toLowerCase();
+    const ua = navigator.userAgent.toLowerCase();
 
-  if (ua.includes("android")) {
-    window.location.href = android;
-  } else if (ua.includes("iphone") || ua.includes("ipad") || ua.includes("ipod")) {
-    window.location.href = ios;
-  } else {
-    // If desktop users click the link, redirect to whichever you prefer:
-    window.location.href = android; // or ios
-  }
+    if (ua.includes("android")) {
+        window.location.replace(android);    // Android → Play Store
+    } else if (ua.includes("iphone") || ua.includes("ipad") || ua.includes("ipod")) {
+        window.location.replace(ios);        // iOS → App Store
+    } else {
+        window.location.replace(android);    // Desktop fallback
+    }
+});
 </script>
+
+<title>Redirecting...</title>
+</head>
+<body></body>
+</html>
